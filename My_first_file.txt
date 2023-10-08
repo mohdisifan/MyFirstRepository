@@ -1,1 +1,71 @@
-Hello World
+class BankAccount:
+    def __init__(self, username, accountType, balance):
+        self.username = username
+        self.accountType = accountType
+        self.balance = balance
+
+account = BankAccount("Mohammed", "Savings", 0)
+
+    def generate_filename(self):
+        filename = str(self.accountNumber) + "_" + self.accountType + "_" + self.name + ".txt"
+        return filename
+
+    def __init__(self):
+        self.balance=0
+        print("Hello!!! Welcome to the Deposit & Withdrawal Machine")
+ 
+    def deposit(self):
+        amount=float(input("Enter amount to be Deposited: "))
+        self.balance += amount
+        print("\n Amount Deposited:",amount)
+ 
+        if amount > 0:
+            self.balance += amount
+            timestamp = datetime.datetime.now()
+            transaction = f"Deposit: +${amount}  Balance: ${self.balance}  Date: {timestamp}"
+            self.statement.append(transaction)
+            self.update_statement_file(transaction)
+
+    def update_statement_file(self, transaction):
+        
+        with open(f"{self.account_holder}_statement.txt", "a") as statement_file:
+            statement_file.write(transaction + "\n")
+
+
+
+    def withdraw(self, amount):
+        if amount > 0 and self.balance >= amount:
+            self.balance -= amount
+            timestamp = datetime.datetime.now()
+            transaction = f"Withdrawal: -${amount}  Balance: ${self.balance}  Date: {timestamp}"
+            self.statement.append(transaction)
+            self.update_statement_file(transaction)
+        else:
+            print("Insufficient funds for withdrawal.")
+
+       if amount > 0 and self.balance >= amount:
+            self.balance -= amount
+            timestamp = datetime.datetime.now()
+            transaction = f"Withdrawal: -${amount}  Balance: ${self.balance}  Date: {timestamp}"
+            self.statement.append(transaction)
+            self.update_statement_file(transaction)
+        else:
+            print("Insufficient funds for withdrawal.
+    def display(self):
+        print("\n Net Available Balance=",self.balance)
+
+    def update_statement_file(self, transaction):
+        
+        with open(f"{self.account_holder}_statement.txt", "a") as statement_file:
+            statement_file.write(transaction + "\n")
+
+
+    def get_statement(self):
+        return self.statement
+
+
+    def get_username(self):
+        return self.username
+
+    def get_accountType(self):
+        return self.accountType
